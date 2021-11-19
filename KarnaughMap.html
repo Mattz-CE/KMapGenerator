@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bootstrap-4.4.1.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="karnaugh.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <title>K-Map Generator</title>
+</head>
+
+<body>
+    <script src="KMapGenerator.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">KMapGenerator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://discord.gg/Mtjj7vyzpT">CS 370 Discord Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/Mattz-CE">Author</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">This doesn't work</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron">
+                    <header style="text-align: center;">
+                        <h1>Karnaugh Map Generator</h1>
+                    </header>
+
+                    <form id="KMapMaker">
+                        <div id="KMapDiv">
+                            <script>
+                                document.write(generateKMapHTML());
+                            </script>
+                        </div>
+
+                        <br />
+                        <br />
+                        <div id="SolutionDiv">
+                            <script>
+                                document.write(generateSolutionHTML());
+                            </script>
+                        </div>
+
+                        <br />
+                        <p>
+                            <center>
+                                <input class="btn btn-info btn-lg" id="resetButton" type="button" name="resetButton"
+                                    value="Reset K-Map" onClick="resetKMap();">
+                                &emsp; Allow "don't care" symbols
+                                <input type="checkbox" name="dontCare" onClick="switchDontCare();">
+                            </center>
+                        </p>
+
+                        <p>
+                            <center>Number of logic variables:
+                                <input type="radio" name="numVar" onClick="changeNumVar(2);" id="Var2"> 2
+                                <input type="radio" name="numVar" onClick="changeNumVar(3);" id="Var3"> 3
+                                <input type="radio" name="numVar" onClick="changeNumVar(4);" id="Var4" checked> 4
+                                <input type="radio" name="numVar" onClick="changeNumVar(5);" id="Var5"> 5
+                            </center>
+                        </p>
+                        <script>
+                            document.getElementById("HeaderLaTeXCode").value = writeDocHeader();
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
